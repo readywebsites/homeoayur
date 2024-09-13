@@ -90,8 +90,12 @@ WSGI_APPLICATION = 'homeoayurcart.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'homeoayurdb',
+        'USER': 'homeoayuruser',
+        'PASSWORD': '123homeoayuraA@A',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
