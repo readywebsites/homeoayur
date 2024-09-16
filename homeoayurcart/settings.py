@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'blog',
     'tinymce',
-    'django.contrib.sites',  # Required for Allauth and Site framework
-    # 'allauth.socialaccount',  # Add this line
-    # 'allauth.socialaccount.providers.google',  # Add this line for Google
-    # 'allauth.socialaccount.providers.facebook',  # Add this line for Facebook
-    # 'allauth.socialaccount.providers.linkedin',  # Add this line for LinkedIn
+    'django.contrib.sites', 
+     'allauth.socialaccount',
+     'allauth.socialaccount.providers.google',  
+     'allauth.socialaccount.providers.facebook',  
+    'allauth.socialaccount.providers.linkedin',  
 
 ]
 
@@ -163,8 +163,8 @@ SOCIALACCOUNT_PROVIDERS = {
         'SECRET': '<your-google-client-secret>',
     },
     'facebook': {
-        'CLIENT_ID': '<your-facebook-client-id>',
-        'SECRET': '<your-facebook-client-secret>',
+        'CLIENT_ID': '1489143238441291',
+        'SECRET': 'a154615e0c811781df033df47526b182',
     },
     'linkedin': {
         'CLIENT_ID': '<your-linkedin-client-id>',
