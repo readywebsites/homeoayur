@@ -6,6 +6,7 @@ import json
 from django.views.decorators.http import require_POST
 from .forms import OrderForm,AddressForm,UserProfileForm, UserForm
 from django.db.models import Q
+from blog.models import Blog_Post
 
 # Create your views here.
 @require_POST
@@ -142,11 +143,13 @@ def update_cart(request):
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
+
+
 def index(request):
     # Fetch products and initialize cart
     products = Product.objects.all()
     cart = get_cart(request)  # Initialize cart here
-
+    bloglist = Blog_Post.objects.all().order_by('-Timestamp')
     # Get cart details
     cart_products = cart.cartproduct_set.all()
     cart_items = cart.count_unique_items()
@@ -178,6 +181,7 @@ def index(request):
         'total': total,
         'selected_currency': selected_currency,
         'currencies': all_currencies,
+        'bloglist':bloglist,
     }
     return render(request, 'index-2.html', context)
 
