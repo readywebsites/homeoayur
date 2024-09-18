@@ -438,11 +438,13 @@
                 </div>
             </div>
             <div class="row">
+            {% for product in products|slice:"14:23"  %}
+
                 <!-- small-product-item -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="ltn__small-product-item">
                         <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/1.png' %}" alt="Image"></a>
+                            <a href="product-details.html"><img src="{{ product.image.url }}" alt="Image"></a>
                         </div>
                         <div class="small-product-item-info">
                             <div class="product-ratting">
@@ -454,214 +456,17 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">Antiseptic Spray</a></h2>
-                            <div class="product-price">
-                                <span>$129.00</span>
-                                <del>$140.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/2.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Digital Stethoscope</a></h2>
-                            <div class="product-price">
-                                <span>$145.00</span>
-                                <del>$155.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/3.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Thermometer Gun</a></h2>
+                            <h2 class="product-title"><a href="product-details.html">{{ product.name }}</a></h2>
                             <div class="product-price">
                                 
-                                <span>$135.00</span>
-                                <del>$145.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/4.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Tail Light Lens</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$149.00</span>
-                                <del>$162.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/5.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Coil Spring Kit</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$140.00</span>
-                                <del>$150.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/6.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Cosmetic Containers</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$110.00</span>
-                                <del>$120.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/7.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Digital Stethoscope</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$130.00</span>
-                                <del>$150.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/8.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Thermometer Gun</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$180.00</span>
-                                <del>$190.00</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{% static 'img/product/9.png' %}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="product-details.html">Cosmetic Containers</a></h2>
-                            <div class="product-price">
-                                
-                                <span>$125.00</span>
+                            <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
                                 <del>$145.00</del>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--  -->
+                {% endfor %}
             </div>
         </div>
     </div>
