@@ -26,7 +26,8 @@ class Category (models.Model):
 
 class Hashtags (models.Model):
   tag = models.CharField(max_length=20)
-
+  def __str__(self):
+    return self.tag
 
 class Blog_Post(models.Model):
   title = models.CharField(max_length=100)
