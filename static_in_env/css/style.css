@@ -79,7 +79,13 @@ font-family: 'Nunito', sans-serif;
 /* ====================================================
     Gutter Code 
 ==================================================== */
-
+.center-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Adjust width as needed */
+  text-align: center;
+}
 .new-background{
   background-color: #8fc740;
 }
