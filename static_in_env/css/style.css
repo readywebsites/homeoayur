@@ -79,6 +79,11 @@ font-family: 'Nunito', sans-serif;
 /* ====================================================
     Gutter Code 
 ==================================================== */
+
+.new-background{
+  background-color: #8fc740;
+}
+
 .container,
 .container-fluid {
   padding-right: 15px;
