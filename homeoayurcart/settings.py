@@ -189,7 +189,8 @@ TINYMCE_DEFAULT_CONFIG = {
 # Allauth settings
 ACCOUNT_EMAIL_REQUIRED = False  # Email is not required if using phone number
 ACCOUNT_USERNAME_REQUIRED = False  # Username is not required
-ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Email verification is optional
+# ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Email verification is optional
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Email verification is optional
 
 # This is crucial to allow login by email or username
 ACCOUNT_AUTHENTICATION_METHOD = 'username'  # Set the default authentication method
