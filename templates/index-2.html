@@ -89,73 +89,7 @@
     <!-- SLIDER AREA END -->
     
     <!-- CATEGORY AREA START -->
-    <div class="ltn__category-area section-bg-1-- pt-30 pb-50">
-        <div class="container">
-            <div class="row ltn__category-slider-active-six slick-arrow-1 border-bottom">
-                <div class="col-12">
-                    <div class="ltn__category-item ltn__category-item-6 text-center">
-                        <div class="ltn__category-item-img">
-                        <a href="shop.html" tabindex="0" class="center-image">
-                        <img src="static/img/custom_icons/edible.jpg" alt="Shop Icon" width="42" height="42">
-                    </a>
-                        </div>
-                        <div class="ltn__category-item-name">
-                            <h6><a href="shop.html">edible</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="ltn__category-item ltn__category-item-6 text-center">
-                        <div class="ltn__category-item-img">
-                        <a href="shop.html" tabindex="0" class="center-image">
-                        <img src="static/img/custom_icons/snack.jpg" alt="Shop Icon" width="42" height="42">
-                    </a>
-                        </div>
-                        <div class="ltn__category-item-name">
-                            <h6><a href="shop.html">Snacks</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="ltn__category-item ltn__category-item-6 text-center">
-                        <div class="ltn__category-item-img">
-                        <a href="shop.html" tabindex="0" class="center-image">
-                        <img src="static/img/custom_icons/filtered.jpg" alt="Shop Icon" width="42" height="42">
-                    </a>
-                        </div>
-                        <div class="ltn__category-item-name">
-                            <h6><a href="shop.html">filtered</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="ltn__category-item ltn__category-item-6 text-center">
-                        <div class="ltn__category-item-img">
-                        <a href="shop.html" tabindex="0" class="center-image">
-                        <img src="static/img/custom_icons/Group.jpg" alt="Shop Icon" width="42" height="42">
-                    </a>
-                        </div>
-                        <div class="ltn__category-item-name">
-                            <h6><a href="shop.html">Group</a></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="ltn__category-item ltn__category-item-6 text-center">
-                        <div class="ltn__category-item-img">
-                        <a href="shop.html" tabindex="0" class="center-image">
-                        <img src="static/img/custom_icons/honey.jpg" alt="Shop Icon" width="42" height="42">
-                    </a>
-                        </div>
-                        <div class="ltn__category-item-name">
-                            <h6><a href="shop.html">honey</a></h6>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
     <!-- CATEGORY AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
@@ -232,8 +166,8 @@
                                     </div>
                                     <h2 class="product-title"><a href="product-details.html">{{ product.name }}</a></h2>
                                     <div class="product-price">
-                                        <span>{{ request.session.currency_symbol }} {{ product.price }}</span>
-                                        <del>$46.00</del>
+                                        <span>₹{{ request.session.currency_symbol }} {{ product.price }}</span>
+                                        <del>₹ {{ product.price | |add_amount:200  }}</del>
                                     </div>
                                 </div>
                             </div>
@@ -326,7 +260,7 @@
                             <h2 class="product-title"><a href="product-details.html">{{product.name}}</a></h2>
                             <div class="product-price">
                             <span>{{ request.session.currency_symbol }} {{ product.price }}</span>
-                                <del>$35.00</del>
+                                <del>₹35.00</del>
                             </div>
                         </div>
                     </div>
@@ -401,7 +335,7 @@
                             <div class="product-price">
                                 
                             <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
-                                <del>$145.00</del>
+                                <del>₹145.00</del>
                             </div>
                         </div>
                     </div>
@@ -466,7 +400,7 @@
                             </div>
                             <h2 class="product-title"><a href="product-details.html">{{ product.name }}</a></h2>
                             <div class="product-price">
-                            <span>{{ request.session.currency_symbol }} {{ product.price }}</span>                                <del>$85.00</del>
+                            <span>{{ request.session.currency_symbol }} {{ product.price }}</span>                                <del>₹85.00</del>
                             </div>
                         </div>
                     </div>
@@ -589,7 +523,7 @@
                             </div>
                             <div class="ltn__feature-info">
                                 <h4>Free shipping</h4>
-                                <p>On all orders over $49.00</p>
+                                <p>On all orders over ₹49.00</p>
                             </div>
                         </div>
                         <div class="ltn__feature-item ltn__feature-item-8">

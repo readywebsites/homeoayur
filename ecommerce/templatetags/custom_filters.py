@@ -4,6 +4,13 @@ from django import template
 register = template.Library()
 
 @register.filter
+def add_amount(value, amount):
+    try:
+        return value + int(amount)
+    except (ValueError, TypeError):
+        return value  # Return the original value if there's an error
+
+@register.filter
 def currency_symbol(currency_code):
     if currency_code == 'CAD':
         return 'CA$'
