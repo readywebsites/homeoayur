@@ -4,11 +4,9 @@ from django import template
 register = template.Library()
 
 @register.filter
-def add_amount(value, amount):
-    try:
-        return value + int(amount)
-    except (ValueError, TypeError):
-        return value  # Return the original value if there's an error
+def add_amount(value, arg):
+    """Subtracts arg from value."""
+    return value + arg
 
 @register.filter
 def currency_symbol(currency_code):
