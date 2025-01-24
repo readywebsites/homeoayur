@@ -129,7 +129,7 @@
                         <div class="col-lg-3--- col-md-4 col-sm-6 col-6">
                             <div class="ltn__product-item ltn__product-item-2 text-left">
                                 <div class="product-img">
-                                    <a href="product-details.html"><img src="{{ product.image.url }}" alt="{{ product.name }}"></a>
+                                    <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="{{ product.name }}"></a>
                                     <div class="product-badge">
                                         <ul>
                                             <li class="sale-badge">New</li>
@@ -227,7 +227,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="ltn__product-item ltn__product-item-3 text-center">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="{{product.image.url}}" alt="#"></a>
+                            <a href="{{product.get_absolute_url}}"><img src="{{product.image.url}}" alt="#"></a>
                             <div class="product-hover-action">
                                 <ul>
                                 <li>
@@ -258,7 +258,7 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">{{product.name}}</a></h2>
+                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{product.name}}</a></h2>
                             <div class="product-price">
                             <span>{{ request.session.currency_symbol }} {{ product.price }}</span>
                                 <del>₹35.00</del>
@@ -320,7 +320,7 @@
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="ltn__small-product-item">
                         <div class="small-product-item-img">
-                            <a href="product-details.html"><img src="{{ product.image.url }}" alt="Image"></a>
+                            <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="Image"></a>
                         </div>
                         <div class="small-product-item-info">
                             <div class="product-ratting">
@@ -332,7 +332,7 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">{{ product.name }}</a></h2>
+                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
                             <div class="product-price">
                                 
                             <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
@@ -364,7 +364,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                     <div class="ltn__product-item ltn__product-item-3 text-left">
                         <div class="product-img">
-                            <a href="product-details.html"><img src="{{ product.image.url }}" alt="#"></a>
+                            <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="#"></a>
                             <div class="product-badge">
                                 <ul>
                                     <li class="sale-badge">New</li>
@@ -399,7 +399,7 @@
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <h2 class="product-title"><a href="product-details.html">{{ product.name }}</a></h2>
+                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
                             <div class="product-price">
                             <span>{{ request.session.currency_symbol }} {{ product.price }}</span>                                <del>₹85.00</del>
                             </div>
