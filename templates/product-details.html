@@ -1,5 +1,6 @@
 {% extends "base/base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 
 
@@ -39,7 +40,7 @@
                                     <div class="ltn__shop-details-large-img">
                                         <div class="single-large-img">
                                             <a href="{% static 'img/product/1.png' %}" data-rel="lightcase:myCollection">
-                                                <img src="{% static 'img/product/1.png' %}" alt="Image">
+                                                <img src="{{product.image.url}}" alt="Image">
                                             </a>
                                         </div>
                                         <div class="single-large-img">
@@ -110,10 +111,10 @@
                                             <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
                                         </ul>
                                     </div>
-                                    <h3>Hand Sanitizer</h3>
+                                    <h3>{{product.name}}</h3>
                                     <div class="product-price">
-                                        <span>$49.00</span>
-                                        <del>$65.00</del>
+                                        <span>₹ {{product.price}}</span>
+                                        <del>₹ {{ product.price|add_amount:200  }}</del>
                                     </div>
                                     <div class="modal-product-meta ltn__product-details-menu-1">
                                         <ul>

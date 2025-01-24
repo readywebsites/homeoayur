@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from decimal import Decimal
+from django.urls import reverse
 from django_countries.fields import CountryField
 
 from django.utils import timezone
@@ -103,6 +104,10 @@ class Product(models.Model):
                 return converted_price.quantize(Decimal('0.01'))  # Format to 2 decimal places
             except Currency.DoesNotExist:
                 return None
+            
+    
+    def get_absolute_url(self):
+        return reverse('product_details', kwargs={'product_id': self.product_id})  # Use slug instead of id
 
 class Cart(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
