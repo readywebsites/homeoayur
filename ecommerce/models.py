@@ -107,7 +107,7 @@ class Product(models.Model):
             
     
     def get_absolute_url(self):
-        return reverse('product_details', kwargs={'product_id': self.product_id})  # Use slug instead of id
+        return reverse('product_details', kwargs={'product_id': self.id})  # Use slug instead of id
 
 class Cart(models.Model):
     user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
