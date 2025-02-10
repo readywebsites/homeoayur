@@ -503,6 +503,8 @@ def phone_callback(request):
             # Create user if not exists
             user = User.objects.create_user(username=complete_phone_number, password='defaultpassword')
             user.backend = 'ecommerce.auth_backends.CustomBackend'  # Set the backend attribute
+            logger.info(f"User created: {user.username}")  # Add a log for confirmation
+
 
         # Set user details
         user.first_name = first_name
@@ -513,6 +515,8 @@ def phone_callback(request):
         create_or_update_user_profile(user, complete_phone_number)
 
         # Log the user in
+        user.backend = 'ecommerce.auth_backends.CustomBackend'  # Set the backend attribute
+
         login(request, user)
 
         return redirect('/')

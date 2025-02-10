@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'blog',
     'tinymce',
     'django.contrib.sites', 
-     'allauth.socialaccount',
-     'allauth.socialaccount.providers.google',  
-     'allauth.socialaccount.providers.facebook',  
+    #  'allauth.socialaccount',
+    #  'allauth.socialaccount.providers.google',  
+    #  'allauth.socialaccount.providers.facebook',  
     # 'allauth.socialaccount.providers.linkedin',  
 
 ]
@@ -89,13 +89,9 @@ WSGI_APPLICATION = 'homeoayurcart.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'homeoayurdb',
-        'USER': 'homeoayuruser',
-        'PASSWORD': '123homeoayuraA@A',
-        'HOST': 'localhost',
-        'PORT': '',
+  'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
