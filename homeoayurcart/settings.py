@@ -220,3 +220,7 @@ LOGGING = {
         },
     },
 }
+
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = False
