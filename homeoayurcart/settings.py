@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'blog',
     'tinymce',
     'django.contrib.sites', 
+     'corsheaders',
     #  'allauth.socialaccount',
     #  'allauth.socialaccount.providers.google',  
     #  'allauth.socialaccount.providers.facebook',  
@@ -60,7 +61,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',  # Add this line
+    'corsheaders.middleware.CorsMiddleware',
 
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://sodam.biz499.com",
 ]
 
 ROOT_URLCONF = 'homeoayurcart.urls'
