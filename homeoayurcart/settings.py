@@ -64,6 +64,10 @@ MIDDLEWARE = [
 ]
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://sodam.biz499.com",
+    "https://auth.phone.email"
+]
 
 ROOT_URLCONF = 'homeoayurcart.urls'
 import os
