@@ -482,6 +482,8 @@ from django.contrib.auth.models import User
 from .models import UserProfile  # Import your UserProfile model
 
 logger = logging.getLogger(__name__)
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
 def phone_callback(request):
     user_json_url = request.GET.get('user_json_url', None)
     if not user_json_url:
