@@ -126,24 +126,10 @@
 </script>
 
 <script>
-    function getCSRFToken() {
-        return document.querySelector('[name=csrfmiddlewaretoken]').value;
-    }
-    </script>
-    
-<script>
-    function phoneEmailListener(userObj) {
-        var user_json_url = userObj.user_json_url;
-        var csrfToken = getCSRFToken();  // Get CSRF token from hidden input
-    
-        fetch('/phone-callback/', {
-            method: 'POST',  // Use POST instead of GET
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken  // Include CSRF token
-            },
-            body: JSON.stringify({ user_json_url: user_json_url })
-        })
+function phoneEmailListener(userObj) {
+    var user_json_url = userObj.user_json_url;
+    // Send the user JSON URL to your backend for further processing
+    fetch('/phone-callback/?user_json_url=' + encodeURIComponent(user_json_url))
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -153,9 +139,10 @@
             }
         })
         .catch(error => console.error('Error:', error));
-    }
-    </script>
-    
+
+   
+}
+</script>
 
 
 {% endblock %}
