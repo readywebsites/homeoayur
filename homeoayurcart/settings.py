@@ -70,6 +70,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 CSRF_TRUSTED_ORIGINS = ["https://sodam.biz499.com", "https://phone.email"]
 
+CORS_ALLOW_ALL_ORIGINS = True  # Only for debugging!
 
 ROOT_URLCONF = 'homeoayurcart.urls'
 import os
