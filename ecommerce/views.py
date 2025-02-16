@@ -483,11 +483,13 @@ from .models import UserProfile  # Import your UserProfile model
 
 logger = logging.getLogger(__name__)
 from django.views.decorators.csrf import csrf_exempt
+from urllib.parse import unquote_plus
+
 @csrf_exempt
 def phone_callback(request):
     logger.info("phone_callback called!")
     print("phone_callback function triggered")
-    user_json_url = request.GET.get('user_json_url', None)
+    user_json_url = unquote_plus(request.GET.get("user.json_url"))
     if not user_json_url:
         return JsonResponse({'error': 'User JSON URL is missing'}, status=400)
 
