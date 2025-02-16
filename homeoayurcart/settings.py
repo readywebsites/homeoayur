@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-(sw*7*05=9ojb3=x1z+7igcrfozbhl2%92r+b5=d99bxf#x*o-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["sodam.biz499.com", "157.173.218.111", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["sodam.biz499.com", "157.173.218.111", "localhost", "127.0.0.1","https://phone.email","https://auth.phone.email"]
 
 
 # Application definition
