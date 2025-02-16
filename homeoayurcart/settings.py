@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     #  'allauth.socialaccount.providers.google',  
     #  'allauth.socialaccount.providers.facebook',  
     # 'allauth.socialaccount.providers.linkedin',  
+    "corsheaders",
 
 ]
 
@@ -60,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',  # Add this line
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 
 ]
 
