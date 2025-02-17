@@ -473,11 +473,14 @@ def phone_login(request):
     CLIENT_ID = "13173857965042182049"  # Replace with your actual CLIENT_ID
     REDIRECT_URL = request.build_absolute_uri('/phone-callback/')  # Adjust path as needed
     AUTH_URL = f"https://www.phone.email/auth/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
-
+    
     context = {
         'auth_url': AUTH_URL
     }
-    return render(request, 'phone_login.html', context)
+    response =  render(request, 'phone_login.html', context)
+    response['Cross-Origin-Opener-Policy'] = 'same-origin-allow-popups'
+    return response
+
 from django.contrib.auth.models import User
 from .models import UserProfile  # Import your UserProfile model
 
