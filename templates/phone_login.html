@@ -11,7 +11,7 @@
     function phoneEmailListener(userObj) {
         var user_json_url = userObj.user_json_url;
         // Send the user JSON URL to your backend for further processing
-        fetch('/phone-callback/?user_json_url=' + encodeURIComponent(user_json_url))
+        // fetch('/phone-callback/?user_json_url=' + encodeURIComponent(user_json_url))
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
