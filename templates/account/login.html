@@ -64,7 +64,9 @@
                             <button class="theme-btn-1 btn btn-block" onclick="window.location.href='/accounts/facebook/login'">
                                 <i class="fa fa-facebook"></i> Sign in With Facebook
                             </button>
-                            <div class="pe_signin_button mt-2" data-client-id="13173857965042182049"><script src="https://www.phone.email/sign_in_button_v1.js" async></script></div>
+                            <div class="pe_signin_button" data-client-id="13173857965042182049"></div>
+
+                            <!-- <div class="pe_signin_button mt-2" data-client-id="13173857965042182049"><script src="https://www.phone.email/sign_in_button_v1.js" async></script></div> -->
                             </div>
                             <div class="go-to-btn mt-20">
                                 <a href="/accounts/password/reset/"><small>FORGOTTEN YOUR PASSWORD?</small></a>
@@ -126,33 +128,16 @@
 </script>
 
 <script>
-    function phoneEmailListener(userObj) {
-        // Construct the full URL dynamically based on the current domain
-        const baseUrl = window.location.origin;  // This gets the base URL of the current domain (e.g., 'https://sodam.biz499.com')
-        const requestUrl = baseUrl + '/phone-callback/?user_json_url=' + encodeURIComponent(userObj.user_json_url);  // Dynamic full URL
-        
-        // Send the user JSON URL to your backend for further processing
-        fetch(requestUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = 'https://sodam.biz499.com/phone-callback';  // Redirect to home or dashboard
-                } else {
-                    console.error('Failed to authenticate:', data.error);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an issue with the phone verification process.');
-            });
-    
-        // Optional debug message (remove in production)
-        if (process.env.NODE_ENV === 'development') {
-            document.querySelector('.pe_signin_button').insertAdjacentHTML('beforeend', 
-                `<span>Phone Verification Successful! Read the user JSON URL from backend to get verified phone number - ${userObj.user_json_url}</span>`);
-        }
-    }
-    </script>
+    const script = document.createElement('script');
+    script.src = 'https://www.phone.email/sign_in_button_v1.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.phoneEmailListener = function(userObj) {
+        alert(userObj.user_json_url);
+
+    };
+</script>
     
 
 
