@@ -7,8 +7,32 @@ from django.views.decorators.http import require_POST
 from .forms import OrderForm,AddressForm,UserProfileForm, UserForm
 from django.db.models import Q
 from blog.models import Blog_Post
+from django.http import JsonResponse
+from django.contrib import messages
+from django.views import View
 
-# Create your views here.
+def terms_view(request):
+    return render(request, 'terms.html')
+
+def privacy_view(request):
+    return render(request, 'privacy.html')
+
+class ProductListView(View):
+    def get(self, request):
+        products = Product.objects.all()  # Retrieve all products
+        return render(request, 'product.html', {'products': products}) 
+def newsletter_signup(request):
+    if request.method == "POST":
+        email = request.POST.get('email')
+        
+        # Here, you can save email to the database (if required)
+        messages.success(request, "Thank you for subscribing!")
+
+        # Check if request is AJAX and return JSON response
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse({"success": True})
+
+    return JsonResponse({"success": False}, status=400)
 @require_POST
 def apply_coupon(request):
     coupon_code = request.POST.get('coupon_code', '').strip()

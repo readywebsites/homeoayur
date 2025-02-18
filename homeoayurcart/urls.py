@@ -15,12 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from ecommerce.views import CustomLoginView,phone_login,phone_callback,apply_coupon,index,product_details,update_cart,change_currency,toggle_wishlist,wishlist_view,cart,order_confirmation,past_orders,order_tracking,user_profile,search,get_address_details,checkout
+from ecommerce.views import terms_view, privacy_view,ProductListView,newsletter_signup,CustomLoginView,phone_login,phone_callback,apply_coupon,index,product_details,update_cart,change_currency,toggle_wishlist,wishlist_view,cart,order_confirmation,past_orders,order_tracking,user_profile,search,get_address_details,checkout
 from django.conf import settings
 from django.conf.urls.static import static
 from blog.views import post,blog
 
 urlpatterns = [
+    path('terms-and-conditions/', terms_view, name='terms'),
+    path('privacy-policy/', privacy_view, name='privacy'),
+    path('products/', ProductListView.as_view(), name='product_list'),
+    path('newsletter-signup/', newsletter_signup, name='newsletter_signup'),
     path('admin/', admin.site.urls),
     path('', index, name='home'),
     path('blog/',blog,name='blog'),

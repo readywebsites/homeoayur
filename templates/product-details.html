@@ -132,7 +132,7 @@
                                         <ul>
                                             <li>
                                                 <div class="cart-plus-minus">
-                                                    <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                                    <input type="text" value="01" name="qtybutton" class="cart-plus-minus-box">
                                                 </div>
                                             </li>
                                             <li>
@@ -400,7 +400,7 @@
                         </div>
                         <!-- Banner Widget -->
                         <div class="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="{% static 'img/banner/2.jpg' %}" alt="#"></a>
+                            <a href="{% url 'product_list' %}"><img src="{% static 'img/banner/2.jpg' %}" alt="#"></a>
                         </div>
                     </aside>
                 </div>
@@ -718,7 +718,7 @@
                             <h1>Buy medical disposable face mask <br> to protect your loved ones</h1>
                         </div>
                         <div class="btn-wrapper">
-                            <a class="btn btn-effect-3 btn-white" href="shop.html">Explore Products <i class="icon-next"></i></a>
+                            <a class="btn btn-effect-3 btn-white" href="{% url 'product_list' %}">Explore Products <i class="icon-next"></i></a>
                         </div>
                     </div>
                 </div>

@@ -13905,11 +13905,15 @@ blockquote::before {
   line-height: 56px;
   width: 140px;
   text-align: center;
+  cursor: pointer;
+  user-select: none;
 }
 
 .qtybutton {
   height: 100%;
   width: 30%;
+  cursor: pointer;
+  user-select: none;
 }
 
 .dec.qtybutton {
