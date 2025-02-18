@@ -20,7 +20,7 @@ def privacy_view(request):
 class ProductListView(View):
     def get(self, request):
         products = Product.objects.all()  # Retrieve all products
-        return render(request, 'product.html', {'products': products}) 
+        return render(request, 'product-details.html', {'products': products}) 
 def newsletter_signup(request):
     if request.method == "POST":
         email = request.POST.get('email')
