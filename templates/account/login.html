@@ -127,26 +127,11 @@
 </script>
 
 <script>
-function phoneEmailListener({ user_json_url }) {
-    fetch(`/phone-callback/?user_json_url=${encodeURIComponent(user_json_url)}`)
-        .then(res => res.json())
-        .then(({ success, error }) => {
-            if (success) {
-                window.location.href = 'https://sodam.biz499.com/phone-callback';
-            } else {
-                console.error('Authentication failed:', error);
-            }
-        })
-        .catch(console.error);
-
-    // Debug message (remove in production)
-    document.querySelector('.pe_signin_button').insertAdjacentHTML(
-        'beforeend', 
-        `<span>Phone Verification Successful! User JSON URL: ${user_json_url}</span>`
-    );
+    function phoneEmailListener(userObj){
+        var user_json_url = userObj.user_json_url;
+        location.href = '/phone-callback/?user_json_url='+user_json_url+''
 }
-
-</script>
+    </script>
     
 
 
