@@ -482,7 +482,7 @@ class CustomLoginView(LoginView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         CLIENT_ID = "13173857965042182049"  # Replace with your actual CLIENT_ID
-        REDIRECT_URL = "https://sodam.biz499.com/phone-callback/"  # Adjust path as needed
+        REDIRECT_URL = self.request.build_absolute_uri('/phone-callback/')   # Adjust path as needed
         AUTH_URL = f"https://www.phone.email/auth/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
         context['auth_url'] = AUTH_URL
         return context
