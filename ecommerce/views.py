@@ -479,17 +479,26 @@ import logging
 
 from allauth.account.views import LoginView
 class CustomLoginView(LoginView):
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        CLIENT_ID = "13173857965042182049"  # Replace with your actual CLIENT_ID
-        REDIRECT_URL = self.request.build_absolute_uri('/phone-callback/')   # Adjust path as needed
-        AUTH_URL = f"https://www.phone.email/auth/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
-        context['auth_url'] = AUTH_URL
-        return context
+    template_name = 'account/login.html'  # Path to your custom login template
     
     def render_to_response(self, context, **response_kwargs):
+        # Prepare the context data for phone login
+        CLIENT_ID = "13173857965042182049"
+        REDIRECT_URL = self.request.build_absolute_uri('/phone-callback/')
+        AUTH_URL = f"https://www.phone.email/auth/log-in?client_id={CLIENT_ID}&redirect_url={REDIRECT_URL}"
+        
+        # Add the auth_url to the context
+        context['auth_url'] = AUTH_URL
+        
+        # Call the super method to render the template and get the response
         response = super().render_to_response(context, **response_kwargs)
+        
+        # Add the necessary CORS headers
         response['Cross-Origin-Opener-Policy'] = 'same-origin-allow-popups'
+        response['Access-Control-Allow-Origin'] = '*'  # Or specify allowed origins
+        response['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'  # Allowed methods
+        response['Access-Control-Allow-Headers'] = 'Content-Type'  # Allowed headers
+        
         return response
 
 
