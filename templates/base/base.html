@@ -175,8 +175,10 @@
                                             <li>
                                                 <a href="#"><i class="icon-user"></i></a>
                                                 <ul>
+                                                    {% if not user.is_authenticated %}
                                                     <li><a href="/phone-login">Sign in</a></li>
                                                     <li><a href="/phone-login">Register</a></li>
+                                                  {% endif %}
                                                     <li><a href="/profile/">My Account</a></li>
                                                     <li><a href="/wishlist/">Wishlist</a></li>
                                                 </ul>
