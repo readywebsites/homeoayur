@@ -372,6 +372,11 @@ def checkout(request):
 
 @login_required
 def user_profile(request):
+    user = request.user
+    cart = Cart.objects.get(user=user)
+    cart_products = CartProduct.objects.filter(cart=cart)
+    total = cart.get_total_price()
+    cart_items = cart.count_unique_items()
     orders = Order.objects.filter(user=request.user)
 
     if request.user.is_superuser:
@@ -394,7 +399,12 @@ def user_profile(request):
         'user_form': user_form,
         'profile_form': profile_form,
         'additional_addresses': user_profile.additional_addresses or [],
-        'orders': orders
+        'orders': orders,
+        'total': total,
+        'cart': cart,
+        'cart_products': cart_products,
+        'cart_items': cart_items,
+
     }
     return render(request, 'user_profile.html', context)
 
