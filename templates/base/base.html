@@ -175,8 +175,8 @@
                                             <li>
                                                 <a href="#"><i class="icon-user"></i></a>
                                                 <ul>
-                                                    <li><a href="/accounts/login">Sign in</a></li>
-                                                    <li><a href="/accounts/signup">Register</a></li>
+                                                    <li><a href="/phone-login">Sign in</a></li>
+                                                    <li><a href="/phone-login">Register</a></li>
                                                     <li><a href="/profile/">My Account</a></li>
                                                     <li><a href="/wishlist/">Wishlist</a></li>
                                                 </ul>
@@ -1069,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.status === 401) {
                     // Redirect to login if unauthorized
-                    window.location.href = '/accounts/login/?next=/toggle-wishlist/';
+                    window.location.href = '/phone-login/?next=/toggle-wishlist/';
                     return;
                 }
 
