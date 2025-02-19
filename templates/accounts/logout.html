@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Logout page">
+    <meta name="keywords" content="logout, account">
+    <title>Logout | My Website</title>
+    <link href="https://resource.phone.email/css/iori_style.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="main">
+        <section class="section mt-30">
+            <div class="container">
+                <div class="box-banner-shop-list bg-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 text-center order-2 order-md-1">
+                            <div class="box-banner-image p-2 bg-10">
+                                <img src="https://img.freepik.com/free-vector/hand-drawn-resignation-illustration_23-2150360133.jpg" alt="Logout Image">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-1 px-3">
+                            <div class="box-info-banner-shop-list">
+                                <h2 class="color-gray-800 mb-20">Are you sure you want to logout?</h2>
+                                <p class="mb-30 font-lg color-grey-500">You will be logged out of your account.</p>
+                                <div class="d-flex">
+                                    <form method="post" action="{% url 'account_logout' %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Yes, Logout</button>
+                                        <a href="{% url 'home' %}" class="btn btn-secondary ms-3">Cancel</a>
+                                    </form>
+                                </div>
+
+                                <div class="mt-20 mb-20">
+                                    <p class="mb-10 font-xs">By logging out, you agree to our Terms &amp; Conditions.</p>
+                                    <a class="text-primary font-xs" href="https://www.phone.email/privacy-policy"
+                                        target="_blank">Privacy Policy</a> &nbsp; |
+                                    &nbsp;
+                                    <a class="text-primary font-xs" href="https://www.phone.email/terms-condition"
+                                        target="_blank">Terms &amp; Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
