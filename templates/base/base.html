@@ -181,6 +181,11 @@
                                                   {% endif %}
                                                     <li><a href="/profile/">My Account</a></li>
                                                     <li><a href="/wishlist/">Wishlist</a></li>
+
+                                                    {% if user.is_authenticated %}
+                                                    <li><a href="/accounts/logout">Sign out</a></li>
+                                                    <li><a href="/phone-login">Register</a></li>
+                                                  {% endif %}
                                                 </ul>
                                             </li>
                                         </ul>
