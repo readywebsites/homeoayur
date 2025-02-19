@@ -67,15 +67,6 @@ MIDDLEWARE = [
 ]
 
 
-CORS_ALLOWED_ORIGINS = [
-    "https://sodam.biz499.com",
-    "https://phone.email",  # Allow OTP service
-    "157.173.218.111:443",
-    "https://auth.phone.email",
-]
-CSRF_TRUSTED_ORIGINS = ["https://sodam.biz499.com", "https://phone.email", "https://auth.phone.email", "157.173.218.111:443", "157.173.218.111:8000"]
-
-CORS_ALLOW_ALL_ORIGINS = True  # Only for debugging!
 
 ROOT_URLCONF = 'homeoayurcart.urls'
 import os
