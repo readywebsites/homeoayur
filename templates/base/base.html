@@ -1054,15 +1054,7 @@ function formatPrice(price) {
   });
   </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-      // Add event listener to currency select dropdown
-      document.getElementById('currency-select').addEventListener('change', function() {
-          // Submit the form when currency selection changes
-          document.getElementById('currency-form').submit();
-      });
-  });
-  </script>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -1258,5 +1250,14 @@ console.error('AJAX error:', error);
 });
 
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listener to currency select dropdown
+            document.getElementById('currency-select').addEventListener('change', function() {
+                // Submit the form when currency selection changes
+                document.getElementById('currency-form').submit();
+            });
+        });
+        </script>
 </body>
 </html>
