@@ -177,12 +177,12 @@
                                                             <div class="col-md-6">
                                                                 <label>Display Name:</label>
                                                                 <!-- Assuming your UserProfileForm uses "name" for display name -->
-                                                                <input type="text" name="name" value="{{ profile_form.name.value|default:user.userprofile.name }}">
+                                                                <input type="text" name="name" value="{{ user.first_name }} {{ user.last_name }}" readonly>
                                                             </div>
                                                             <!-- Read-only phone number -->
                                                             <div class="col-md-6">
                                                                 <label>Phone No:</label>
-                                                                <input type="text" name="phone_number" value="{{ user.userprofile.phone_number }}" readonly>
+                                                                <input type="text" name="phone_number" value="{{ user }}" readonly>
                                                             </div>
                                                         </div>
                                                     
