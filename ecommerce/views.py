@@ -543,30 +543,28 @@ def phone_callback(request):
 
         complete_phone_number = f"{country_code}{phone_number}"
 
-        # Check if the user exists
+        # Check if the user exists; if not, create a new one
         user = User.objects.filter(username=complete_phone_number).first()
         if user is None:
-            # Create user if not exists
             user = User.objects.create_user(username=complete_phone_number, password='defaultpassword')
-            user.backend = 'ecommerce.auth_backends.CustomBackend'  # Set the backend attribute
-            logger.info(f"User created: {user.username}")  # Add a log for confirmation
+            user.backend = 'ecommerce.auth_backends.CustomBackend'
+            logger.info(f"User created: {user.username}")
 
-
-        # Set user details
-        user.first_name = first_name
-        user.last_name = last_name
+        # Update the User model's first and last name
+        if first_name:
+            user.first_name = first_name
+        if last_name:
+            user.last_name = last_name
         user.save()
 
-        # Update or create the user profile
-        create_or_update_user_profile(user, complete_phone_number)
+        # Update or create the user profile with phone number and display name (full name)
+        create_or_update_user_profile(user, complete_phone_number, first_name, last_name)
 
         # Log the user in
-        user.backend = 'ecommerce.auth_backends.CustomBackend'  # Set the backend attribute
-
+        user.backend = 'ecommerce.auth_backends.CustomBackend'
         login(request, user)
 
         return redirect('/')
-
 
     except requests.RequestException as e:
         logger.error(f'Request error: {str(e)}')
@@ -590,12 +588,19 @@ def authenticate_phone(phone_number):
     print(f"Using backend: {backend}")
     return user
 
-def create_or_update_user_profile(user, phone_number):
+def create_or_update_user_profile(user, phone_number, first_name='', last_name=''):
+    # Combine first and last name for the profile's display name if available
+    full_name = f"{first_name} {last_name}".strip() if first_name or last_name else None
     user_profile, created = UserProfile.objects.get_or_create(
         user=user,
-        defaults={'phone_number': phone_number}
+        defaults={
+            'phone_number': phone_number,
+            'name': full_name
+        }
     )
     if not created:
-        # Update existing user profile
+        # Update the existing user profile if new values are provided
         user_profile.phone_number = phone_number
+        if full_name:
+            user_profile.name = full_name
         user_profile.save()

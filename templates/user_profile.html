@@ -159,38 +159,34 @@
                                             <div class="ltn__myaccount-tab-content-inner">
                                                 <p>The following addresses will be used on the checkout page by default.</p>
                                                 <div class="ltn__form-box">
-                                                    <form action="#">
+                                                    <form action="{% url 'user_profile' %}" method="post">
+                                                        {% csrf_token %}
                                                         <div class="row mb-50">
+                                                            <!-- Editable fields for first and last name -->
                                                             <div class="col-md-6">
                                                                 <label>First name:</label>
-                                                                <input type="text" name="ltn__name" value="{{ user.first_name }}" readonly>
+                                                                <!-- Assuming your UserForm has a field named "first_name" -->
+                                                                <input type="text" name="first_name" value="{{ user_form.first_name.value|default:user.first_name }}">
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label>Last name:</label>
-                                                                <input type="text" name="ltn__lastname" value="{{ user.last_name }}" readonly>
+                                                                <!-- Assuming your UserForm has a field named "last_name" -->
+                                                                <input type="text" name="last_name" value="{{ user_form.last_name.value|default:user.last_name }}">
                                                             </div>
+                                                            <!-- Editable display name stored in the extended profile -->
                                                             <div class="col-md-6">
                                                                 <label>Display Name:</label>
-                                                                <input type="text" name="ltn__displayname" value="{{ user.first_name }}" readonly>
+                                                                <!-- Assuming your UserProfileForm uses "name" for display name -->
+                                                                <input type="text" name="name" value="{{ profile_form.name.value|default:user.userprofile.name }}">
                                                             </div>
+                                                            <!-- Read-only phone number -->
                                                             <div class="col-md-6">
                                                                 <label>Phone No:</label>
-                                                                <input type="text" name="ltn__displayname" value="+{{user}}" readonly>
+                                                                <input type="text" name="phone_number" value="{{ user.userprofile.phone_number }}" readonly>
                                                             </div>
                                                         </div>
-                                                        <fieldset>
-                                                            <legend>Password change</legend>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <label>Current password (leave blank to leave unchanged):</label>
-                                                                    <input type="password" name="ltn__name">
-                                                                    <label>New password (leave blank to leave unchanged):</label>
-                                                                    <input type="password" name="ltn__lastname">
-                                                                    <label>Confirm new password:</label>
-                                                                    <input type="password" name="ltn__lastname">
-                                                                </div>
-                                                            </div>
-                                                        </fieldset>
+                                                    
+
                                                         <div class="btn-wrapper">
                                                             <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Save Changes</button>
                                                         </div>
