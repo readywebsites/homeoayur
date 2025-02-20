@@ -207,7 +207,10 @@ def index(request):
         'currencies': all_currencies,
         'bloglist':bloglist,
     }
-    return render(request, 'index-2.html', context)
+    # return render(request, 'index-2.html', context)
+    response =  render(request, 'index-2.html', context)
+    response['Cross-Origin-Opener-Policy'] = 'same-origin-allow-popups'
+    return response
 
 
 def product_details(request, product_id):
