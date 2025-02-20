@@ -94,7 +94,7 @@ class Product(models.Model):
     
 
     def get_price(self, currency):
-        if currency == 'USD':
+        if currency == 'RUP':
             return self.price
         else:
             # Convert price to the selected currency using the conversion rate

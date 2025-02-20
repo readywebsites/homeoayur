@@ -148,7 +148,61 @@
                         <!-- header-options -->
                         <div class="ltn__header-options">
                             <ul>
-
+                                <li class="">
+                                    <!-- ltn__currency-menu -->
+                                    <div class="ltn__drop-menu ltn__currency-menu">
+                                        <ul>
+                                            <li><a href="#" class="dropdown-toggle"><span class="active-currency">                                                    {% if request.session.currency %}
+                                                {{ request.session.currency }}
+                                            {% else %}
+                                                RUP
+                                            {% endif %}</span></a>
+                                                <ul>
+                                                    <li><a href="#" data-currency="RUP">RUP - Rupees</a></li>
+                                                    <li><a href="#" data-currency="USD">USD - US Dollar</a></li>
+                                          
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <script>
+                                            $(document).ready(function() {
+        $('.ltn__currency-menu a[data-currency]').click(function(e) {
+            e.preventDefault();
+    
+            var selectedCurrency = $(this).data('currency');
+    
+            $.ajax({
+                url: '/change-currency/',  // URL to your change_currency view
+                type: 'POST',
+                data: {
+                    'currency': selectedCurrency,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'  // Include CSRF token for security
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.success) {
+                        // Update the displayed currency
+                        $('.active-currency').text(selectedCurrency);
+    
+                        // Optional: Update UI or notify user
+                        console.log('Currency changed successfully');
+                        location.reload();  // Reload page or update UI as necessary
+                    } else {
+                        // Optional: Handle error scenario
+                        console.log('Failed to change currency');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Optional: Handle AJAX errors
+                    console.error('AJAX error:', error);
+                }
+            });
+        });
+    });
+    
+                                        </script>
+                                    </div>
+                                </li>
                                 <li class="d-none--- ">
                                     <!-- header-search-1 -->
                                     <div class="header-search-wrap d-block d-xl-none">
