@@ -46,7 +46,7 @@
                                     <div class="tab-content">
                                         <div class="tab-pane fade active show" id="liton_tab_1_1">
                                             <div class="ltn__myaccount-tab-content-inner">
-                                                <p>Hello <strong>{{user}}</strong> (not <strong>{{user}}</strong>? <small><a href="login-register.html">Log out</a></small> )</p>
+                                                <p>Hello <strong>{{ user.first_name }}</strong> (not <strong>{{user}}</strong>? <small><a href="login-register.html">Log out</a></small> )</p>
                                                 <p>From your account dashboard you can view your <span>recent orders</span>, manage your <span>shipping and billing addresses</span>, and <span>edit your password and account details</span>.</p>
                                             </div>
                                         </div>
@@ -163,19 +163,19 @@
                                                         <div class="row mb-50">
                                                             <div class="col-md-6">
                                                                 <label>First name:</label>
-                                                                <input type="text" name="ltn__name">
+                                                                <input type="text" name="ltn__name" value="{{ user.first_name }}" readonly>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label>Last name:</label>
-                                                                <input type="text" name="ltn__lastname">
+                                                                <input type="text" name="ltn__lastname" value="{{ user.last_name }}" readonly>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label>Display Name:</label>
-                                                                <input type="text" name="ltn__lastname" placeholder="Ethan">
+                                                                <input type="text" name="ltn__displayname" value="{{ user.first_name }}" readonly>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label>Display Email:</label>
-                                                                <input type="email" name="ltn__lastname" placeholder="example@example.com">
+                                                                <label>Phone No:</label>
+                                                                <input type="text" name="ltn__displayname" value="+{{user}}" readonly>
                                                             </div>
                                                         </div>
                                                         <fieldset>
