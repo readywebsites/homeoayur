@@ -214,7 +214,7 @@ def product_details(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart = get_cart(request)
     currencies = Currency.objects.all()  # Get all available currencies
-    selected_currency = request.session.get('currency', 'USD')  # Default to USD if not set in session
+    selected_currency = request.session.get('currency', 'RUP')  # Default to USD if not set in session
 
     product_price = product.get_price(selected_currency)
     cart_items = cart.count_unique_items()
