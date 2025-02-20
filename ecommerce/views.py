@@ -179,7 +179,7 @@ def index(request):
     cart_items = cart.count_unique_items()
     total = cart.get_total_price()
 
-    selected_currency = request.session.get('currency', 'USD')
+    selected_currency = request.session.get('currency', 'RUP')
     all_currencies = Currency.objects.all()
 
 
