@@ -67,7 +67,7 @@ def apply_coupon(request):
 
     
 def change_currency(request):
-    if request.method == 'POST' and request.is_ajax():
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         currency_code = request.POST.get('currency')
 
         # Fetch the Currency object based on the currency code
