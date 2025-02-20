@@ -8,23 +8,26 @@
 
 
 <style>
-    /* Example CSS for styling dropdown */
-    .custom-dropdown {
-    width: 100%; /* Adjust width as needed */
-    padding: 4px;
+.custom-dropdown {
+    width: 100%;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: #fff;
     font-size: 14px;
     color: #333;
-    max-height: 800px; /* Limit height */
-    overflow-y: auto; /* Enable vertical scrolling */
+    appearance: none; /* Removes default browser styles */
 }
 
 .custom-dropdown option {
-    padding: 4px;
     font-size: 14px;
     color: #333;
+}
+
+/* Fixing the dropdown overflow issue */
+.custom-country-dropdown {
+    max-height: 200px; /* Limits the dropdown height */
+    overflow-y: auto; /* Enables vertical scrolling */
 }
 
 </style>
