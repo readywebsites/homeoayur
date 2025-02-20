@@ -304,6 +304,8 @@
     <!-- BANNER AREA END -->
 
     <!-- SMALL PRODUCT LIST AREA START -->
+    {% if products|slice:"14:23" %}
+    <!-- SMALL PRODUCT LIST AREA START -->
     <div class="ltn__small-product-list-area section-bg-1 pt-115 pb-90 mt-90">
         <div class="container">
             <div class="row">
@@ -314,40 +316,39 @@
                 </div>
             </div>
             <div class="row">
-            {% for product in products|slice:"14:23"  %}
-
-                <!-- small-product-item -->
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="ltn__small-product-item">
-                        <div class="small-product-item-img">
-                            <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="Image"></a>
-                        </div>
-                        <div class="small-product-item-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
+                {% for product in products|slice:"14:23" %}
+                    <!-- small-product-item -->
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="ltn__small-product-item">
+                            <div class="small-product-item-img">
+                                <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="Image"></a>
                             </div>
-                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
-                            <div class="product-price">
-                                
-                            <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
-                                <del>₹145.00</del>
+                            <div class="small-product-item-info">
+                                <div class="product-ratting">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
+                                        <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    </ul>
+                                </div>
+                                <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
+                                <div class="product-price">
+                                    <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
+                                    <del>₹145.00</del>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--  -->
                 {% endfor %}
             </div>
         </div>
     </div>
     <!-- SMALL PRODUCT LIST AREA END -->
+{% endif %}
 
+{% if products|slice:"23:32" %}
     <!-- PRODUCT AREA START (product-item-3) -->
     <div class="ltn__product-area ltn__product-gutter pt-115 pb-70">
         <div class="container">
@@ -359,59 +360,61 @@
                 </div>
             </div>
             <div class="row ltn__tab-product-slider-one-active--- slick-arrow-1">
-            {% for product in products|slice:"23:32"  %}
-                <!-- ltn__product-item -->
-                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                    <div class="ltn__product-item ltn__product-item-3 text-left">
-                        <div class="product-img">
-                            <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="#"></a>
-                            <div class="product-badge">
-                                <ul>
-                                    <li class="sale-badge">New</li>
-                                </ul>
+                {% for product in products|slice:"23:32" %}
+                    <!-- ltn__product-item -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="ltn__product-item ltn__product-item-3 text-left">
+                            <div class="product-img">
+                                <a href="{{product.get_absolute_url}}"><img src="{{ product.image.url }}" alt="#"></a>
+                                <div class="product-badge">
+                                    <ul>
+                                        <li class="sale-badge">New</li>
+                                    </ul>
+                                </div>
+                                <div class="product-hover-action">
+                                    <ul>
+                                        <li>
+                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                <i class="far fa-eye"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                                <i class="far fa-heart"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="product-hover-action">
-                                <ul>
-                                    <li>
-                                        <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                            <i class="far fa-eye"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                            <i class="far fa-heart"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-ratting">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                    <li><a href="#"><i class="far fa-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
-                            <div class="product-price">
-                            <span>{{ request.session.currency_symbol }} {{ product.price }}</span>                                <del>₹85.00</del>
+                            <div class="product-info">
+                                <div class="product-ratting">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
+                                        <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    </ul>
+                                </div>
+                                <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{ product.name }}</a></h2>
+                                <div class="product-price">
+                                    <span>{{ request.session.currency_symbol }} {{ product.price }}</span>        
+                                    <del>₹85.00</del>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>           
-                <!--  -->
                 {% endfor %}
-
             </div>
         </div>
     </div>
+    <!-- PRODUCT AREA END -->
+{% endif %}
+
     <!-- PRODUCT AREA END -->
 
     <!-- ABOUT US AREA START -->
