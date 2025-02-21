@@ -216,7 +216,7 @@
                                                 <i class="icon-shopping-cart"></i>
                                                 <sup id="cart-total-items">{{cart_items}}</sup>
                                             </span>
-                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">₹{{total}}</span></h6>
+                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">{{ request.session.currency_symbol }}{{currency_total}}</span></h6>
                                         </a>
                                     </div>
                                 </li>
