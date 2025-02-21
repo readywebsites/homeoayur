@@ -5,13 +5,12 @@ from ecommerce.models import UserProfile, Order, Address
 
 
 from django import forms
-from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
+
 
 class AddressForm(forms.ModelForm):
     country = forms.ChoiceField(
         choices=[('IN', 'India'), ('US', 'United States')],
-        widget=CountrySelectWidget(attrs={'class': 'custom-dropdown custom-country-dropdown'})
+        widget=forms.Select(attrs={'class': 'custom-dropdown custom-country-dropdown'})  # Removing CountrySelectWidget
     )
 
     class Meta:
