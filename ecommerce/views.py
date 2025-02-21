@@ -10,7 +10,7 @@ from blog.models import Blog_Post
 from django.http import JsonResponse
 from django.contrib import messages
 from django.views import View
-
+from blog.models import NewsletterSignup
 def terms_view(request):
     return render(request, 'terms.html')
 
@@ -26,14 +26,22 @@ def newsletter_signup(request):
     if request.method == "POST":
         email = request.POST.get('email')
         
-        # Here, you can save email to the database (if required)
-        messages.success(request, "Thank you for subscribing!")
+        # Save the email to the database
+        if email:
+            # Create a new newsletter signup object
+            newsletter = NewsletterSignup(email=email)
+            newsletter.save()
 
-        # Check if request is AJAX and return JSON response
-        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
-            return JsonResponse({"success": True})
+            # Show a success message
+            messages.success(request, "Thank you for subscribing!")
 
+            # Check if the request is AJAX and return a JSON response
+            if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+                return JsonResponse({"success": True})
+
+    # Return a response indicating failure if something went wrong
     return JsonResponse({"success": False}, status=400)
+
 @require_POST
 def apply_coupon(request):
     coupon_code = request.POST.get('coupon_code', '').strip()
