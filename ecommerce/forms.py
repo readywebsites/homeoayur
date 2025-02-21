@@ -4,10 +4,22 @@ from django.contrib.auth.models import User
 from ecommerce.models import UserProfile, Order, Address
 
 
+from django import forms
+from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
+
 class AddressForm(forms.ModelForm):
+    country = forms.ChoiceField(
+        choices=[('IN', 'India'), ('US', 'United States')],
+        widget=CountrySelectWidget(attrs={'class': 'custom-dropdown custom-country-dropdown'})
+    )
+
     class Meta:
         model = Address
-        fields = ['first_name', 'last_name', 'email', 'phone', 'address_line_1', 'country', 'state', 'city', 'zipcode']
+        fields = [
+            'first_name', 'last_name', 'email', 'phone',
+            'address_line_1', 'country', 'state', 'city', 'zipcode'
+        ]
 
     def __init__(self, user, *args, **kwargs):
         super(AddressForm, self).__init__(*args, **kwargs)
@@ -17,6 +29,7 @@ class AddressForm(forms.ModelForm):
             required=False,
             widget=forms.Select(attrs={'class': 'form-control'})
         )
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
