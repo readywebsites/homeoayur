@@ -28,11 +28,11 @@ def comma_to_br(value):
 @register.filter
 def multiply(value, arg):
     try:
+        # Convert value to a float to ensure it's numeric
+        value = float(value)
         return value * arg
     except (ValueError, TypeError):
         return ''
-    
-
 
 @register.filter(name='add_class')
 def add_class(value, arg):
