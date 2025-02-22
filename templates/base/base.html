@@ -216,7 +216,8 @@
                                                 <i class="icon-shopping-cart"></i>
                                                 <sup id="cart-total-items">{{cart_items}}</sup>
                                             </span>
-                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color">{{ request.session.currency_symbol }}{{currency_total}}</span></h6>
+
+                                            <h6><span>Your Cart</span> <span class="ltn__secondary-color"> {% if request.session.currency %} {{ request.session.currency_symbol }} {% else %} ₹ {% endif %} {{currency_total}}</span></h6>
                                         </a>
                                     </div>
                                 </li>
@@ -386,7 +387,7 @@
             </div>
             <div class="mini-cart-footer">
                 <div class="mini-cart-sub-total">
-                    <h5>Subtotal: <span id="cart-subtotal">{{ request.session.currency_symbol }}{{currency_total}}</span></h5>
+                    <h5>Subtotal: <span id="cart-subtotal">{% if request.session.currency %} {{ request.session.currency_symbol }} {% else %} ₹ {% endif %} {{currency_total}}</span></h5>
                 </div>
                 <div class="btn-wrapper">
                     <a href="/cart" class="theme-btn-1 btn btn-effect-1">View Cart</a>
